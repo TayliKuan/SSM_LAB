@@ -6,12 +6,11 @@
 		<item value="NULL_RUNTIME"/>
 	</list>
 	<list key="J2EE_IMPORT_null">
+		<item value="C:\Users\2008019\Desktop\嘉軒\EmpTestUp.war"/>
 		<item value="C:\Users\2008019\Desktop\嘉軒\EmpTestNew.war"/>
 		<item value="C:\Users\2008019\Desktop\嘉軒\EmpTest\EmpTest.war"/>
 		<item value="C:\Users\2008019\Desktop\IBM_emp_0501MVC_Mybayis.war"/>
 		<item value="C:\Users\2008019\Desktop\IBM_emp_0501MVC_Mybayis\IBM_emp_0501MVC_Mybayis.war"/>
-		<item value="C:\Users\2008019\Desktop\EmpTest.war"/>
-		<item value="E:\TIBAME備份\桌面\EA101G5_0720.war"/>
 	</list>
 	<list key="J2EE_EXPORT_JST_WEB">
 		<item value="C:\Users\2008019\Desktop\IISI_LAB_SSM.war"/>

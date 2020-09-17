@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="com.hello.domain.User"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
@@ -29,7 +28,6 @@
 <fullyQualifiedTypeName name="javax.validation.constraints.Past"/>
 <fullyQualifiedTypeName name="javax.persistence.Temporal"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
-<fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="tw.gov.bli.baseDao.BaseDao"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="tw.gov.bli.dto.DeptCase"/>
 <fullyQualifiedTypeName name="tw.gov.bli.user.service.UserService"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
 </qualifiedTypeNameHistroy>
