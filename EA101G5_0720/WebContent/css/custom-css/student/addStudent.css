@@ -1,0 +1,181 @@
+/* ####################################################
+    :: Template Name: Essence - Fashion Ecommerce Template
+    :: Author: Colorlib
+    :: Author URL: https://colorlib.com
+    :: Description: Essence is smart & elegant fashion e-commerce Template. It's suitable for all e-commerce business platform.
+    :: Version: 1.0.0
+    :: Created: April 27, 2018
+    :: Last Updated: May 2, 2018
+    #################################################### */
+
+/* ---------------------------------------
+    ##### - PLACE YOUR CUSTOM CSS HERE - #####
+    --------------------------------------- */
+body {
+
+	margin-top: 20px;
+}
+
+
+h2 {
+	padding-top: 50px;
+	padding-left: 50px;
+}
+
+/* .regular-page-content-wrapper {
+     background-color: white;
+    margin: 50px;
+    border-radius: 25px;
+    padding: 20px;
+    height: 1000px;
+} */
+.card {
+	margin-top: 50px;
+	border-radius: 30px !important;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+
+.city, .town {
+	width: 100%;
+}
+
+.f1 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(5% - 10px)
+}
+
+.f2 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(10% - 10px)
+}
+
+.f3 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(15% - 10px)
+}
+
+.f4 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(20% - 10px)
+}
+
+.f5 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(25% - 10px)
+}
+
+.f6 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(30% - 10px)
+}
+
+.f7 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(35% - 10px)
+}
+
+.f8 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(40% - 10px)
+}
+
+.f9 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(45% - 10px)
+}
+
+.f10 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(50% - 10px)
+}
+
+.f11 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(55% - 10px)
+}
+
+.f12 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(60% - 10px)
+}
+
+.f13 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(65% - 10px)
+}
+
+.f14 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(70% - 10px)
+}
+
+.f15 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(75% - 10px)
+}
+
+.f16 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(80% - 10px)
+}
+
+.f17 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(85% - 10px)
+}
+
+.f18 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(90% - 10px)
+}
+
+.f19 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(95% - 10px)
+}
+
+.f20 {
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(100% - 10px)
+}

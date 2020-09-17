@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:mvc="http://www.springframework.org/schema/mvc"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:tx="http://www.springframework.org/schema/tx" 
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+ <!-- 以上要自己加Spring的tx aop schema配置  https://www.itread01.com/p/775661.html -->
+<!-- IOC容器-->
+
+<!-- Spring框架  只管service跟dao-->
+
+<!-- 開啟註解掃描 只要處理service和dao,controller不需要Spring框架去處理 -->
+<context:component-scan base-package="tw.gov.bli">
+	<!-- 配置那些不掃描 -->
+	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+</context:component-scan>
+
+<!--Spring 整合 MyBatis框架-->
+
+<!-- 配置連接池
+https://www.cnblogs.com/foxting/p/7354148.html 這裡要改-->
+
+<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName" value="java:/comp/env/jdbc/TestDB"/>
+  </bean>
+  
+<!-- 配置SqlSessionFactory -->
+<!-- 如果要lazy就要引入SqlMapConfig 用於多表查詢-->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	<!-- 改用daoimpl 實作-->
+	 <property name="mapperLocations">
+     <list>
+         <value>classpath:tw/gov/bli/dao/UserSqlMap.xml</value>    
+<!--          <value>classpath:tw/gov/bli/dao/DeptSqlMap.xml</value>     -->
+         
+     </list>
+ </property>
+</bean>
+
+<!-- 配置UserDao的位置  掃描-->
+
+<!-- <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
+<!-- 	<property name="basePackage" value="tw.gov.bli.dao"></property> -->
+<!-- </bean> -->
+
+<!-- 改用daoimpl 實作-->
+
+<!-- 配置Spring框架 交易-->
+
+<!-- 配置交易管理器 綁定連接池 dataSource-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
+<!-- 配置交易通知
+propagation="REQUIRED" 	支援現在的交易，如果沒有的話就建立一個新的交易
+-->
+ 
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:attributes>
+		<tx:method name="findAll" read-only="true"></tx:method>
+		<tx:method name="insert" propagation="REQUIRED"></tx:method>
+		<tx:method name="update" propagation="REQUIRED"></tx:method>
+		<tx:method name="delete" propagation="REQUIRED"></tx:method>
+		<tx:method name="findUserByCondition" read-only="true"></tx:method>
+		<tx:method name="findByPrimaryKey" read-only="true"></tx:method>
+		<tx:method name="*" isolation="DEFAULT"></tx:method>
+	</tx:attributes>
+</tx:advice>
+
+<!-- 配置AOP增強-->
+<aop:config>
+	<aop:advisor advice-ref="txAdvice" pointcut="execution(* tw.gov.b4li.service.*Service.*(..))"/>
+</aop:config>
+<!-- 第一個*任意返回值型別  第二個 * 這個 包下的任意class 第三個 *這個 包下的任意class的任意方法 第四個 ..參數-->
+</beans>

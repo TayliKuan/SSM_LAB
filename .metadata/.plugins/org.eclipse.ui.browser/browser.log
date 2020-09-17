@@ -1,0 +1,101 @@
+
+8月 26, 2020 17:56:41.14 NEW SESSION
+8月 26, 2020 17:56:41.15 [4008:18756:0826/175641.142:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+
+8月 27, 2020 09:25:30.37 NEW SESSION
+8月 27, 2020 09:25:30.37 [5240:1240:0827/092530.370:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 09:32:39.66 [19108:17364:0827/093239.663:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 11:54:55.51 [17252:3356:0827/115455.515:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 12:10:08.06 [7272:13832:0827/121008.062:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 12:39:17.91 [7272:13832:0827/123917.910:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8月 27, 2020 13:40:02.37 [7272:13832:0827/134002.378:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -7
+8月 27, 2020 13:40:04.11 [7272:17144:0827/134004.119:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+8月 27, 2020 14:06:01.99 [8024:14236:0827/140601.995:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 14:11:42.42 [15304:2380:0827/141142.427:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 27, 2020 14:24:01.64 [1540:12940:0827/142401.647:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+
+8月 28, 2020 10:54:56.58 NEW SESSION
+8月 28, 2020 10:54:56.58 [17692:3280:0828/105456.581:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+8月 28, 2020 12:30:26.47 [17692:3280:0828/123026.469:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8月 28, 2020 13:35:37.71 [17692:3280:0828/133537.714:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -7
+8月 28, 2020 13:35:39.53 [17692:10412:0828/133539.533:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+
+9月 01, 2020 15:49:37.13 NEW SESSION
+9月 01, 2020 15:49:37.13 [6688:13248:0901/154937.126:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+9月 01, 2020 17:40:54.86 [21288:17232:0901/174054.863:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -118
+
+9月 09, 2020 10:16:51.66 NEW SESSION
+9月 09, 2020 10:16:51.67 [23200:8188:0909/101651.668:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 09, 2020 10:17:43.79 [22460:11628:0909/101743.793:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 09, 2020 10:24:30.12 [22460:22548:0909/102430.120:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 10:24:30.12 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 10:29:57.17 [22460:22548:0909/102957.171:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 10:29:57.17 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 10:30:43.22 [22460:22548:0909/103043.225:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 10:30:43.22 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 10:38:40.72 [22460:22548:0909/103840.721:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 10:38:40.72 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 11:06:24.40 [22460:22548:0909/110624.408:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 11:06:24.41 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 11:22:50.95 [22460:22548:0909/112250.957:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 11:22:50.96 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 12:04:24.30 [22460:22548:0909/120424.307:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 12:04:24.30 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 12:07:08.66 [22460:22548:0909/120708.662:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 12:07:08.66 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 12:07:53.86 [22460:22548:0909/120753.861:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 12:07:53.86 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 12:20:17.55 [22460:22548:0909/122017.555:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 12:20:17.55 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9月 09, 2020 12:25:03.61 [22460:24220:0909/122503.614:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9月 09, 2020 13:33:11.49 [22460:7128:0909/133311.498:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9月 09, 2020 13:33:11.82 [22460:24220:0909/133311.824:ERROR:socket_stream.cc(219)] Closing stream with result -2
+
+9月 09, 2020 23:28:59.38 NEW SESSION
+9月 09, 2020 23:28:59.38 [2452:17016:0909/232859.383:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 09, 2020 23:36:13.40 [2452:11868:0909/233613.400:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+9月 09, 2020 23:50:26.70 [2452:12620:0909/235026.704:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-jV3l8FiuiXP3h8/ehVjnLnDwcCbe0n4CLMfsjzBcHcE='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9月 09, 2020 23:50:26.70 ", source: chrome-search://local-ntp/local-ntp.html (1)
+
+9月 10, 2020 08:48:05.60 NEW SESSION
+9月 10, 2020 08:48:05.60 [9264:23924:0910/084805.604:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 10, 2020 13:56:22.10 NEW SESSION
+9月 10, 2020 13:56:22.10 [18636:9284:0910/135622.098:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 10, 2020 13:56:25.61 [18636:25596:0910/135625.617:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 13:56:54.88 [18636:25596:0910/135654.885:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 13:57:50.05 [18636:25596:0910/135750.057:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 13:59:13.74 [18636:25596:0910/135913.749:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 14:02:27.28 [18636:25596:0910/140227.282:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 14:09:15.51 [18636:940:0910/140915.518:ERROR:account_info_fetcher.cc(60)] OnGetTokenFailure: Connection failed (-106).
+9月 10, 2020 14:09:34.70 [18636:25596:0910/140934.701:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 14:19:34.70 [18636:25596:0910/141934.705:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9月 10, 2020 14:29:34.70 [18636:25596:0910/142934.708:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9月 13, 2020 23:58:12.25 NEW SESSION
+9月 13, 2020 23:58:12.25 [26612:24532:0913/235812.252:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 13, 2020 23:58:15.40 [26612:2620:0913/235815.403:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9月 14, 2020 24:16:23.23 [27592:14976:0914/001623.235:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 14, 2020 12:18:44.60 NEW SESSION
+9月 14, 2020 12:18:44.60 [14840:16880:0914/121844.606:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 14, 2020 12:25:26.86 [14840:17720:0914/122526.861:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9月 14, 2020 13:37:11.58 [14840:17720:0914/133711.582:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9月 14, 2020 13:37:12.37 [14840:11556:0914/133712.373:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9月 14, 2020 17:38:24.69 [16052:18896:0914/173824.698:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 14, 2020 17:55:35.27 [11356:26720:0914/175535.277:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 14, 2020 23:19:39.11 NEW SESSION
+9月 14, 2020 23:19:39.11 [27632:19772:0914/231939.108:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 15, 2020 24:18:13.05 [26676:11836:0915/001813.054:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 15, 2020 22:49:33.32 NEW SESSION
+9月 15, 2020 22:49:33.32 [24592:22032:0915/224933.326:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 15, 2020 22:50:22.72 [18916:9188:0915/225022.727:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 16, 2020 24:00:37.16 [18160:21016:0916/000037.163:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 16, 2020 24:14:29.55 [27128:27452:0916/001429.558:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 16, 2020 24:25:30.13 [4520:19356:0916/002530.138:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 16, 2020 22:04:08.78 NEW SESSION
+9月 16, 2020 22:04:08.78 [2500:1660:0916/220408.779:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 16, 2020 22:11:50.11 [7976:25712:0916/221150.115:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.

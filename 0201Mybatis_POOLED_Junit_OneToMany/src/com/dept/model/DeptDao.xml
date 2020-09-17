@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dept.model.DeptDAO_interface">
+	<!-- 定義封裝 dept的resultMap -->
+	<resultMap type="com.dept.model.DeptVO" id="deptEmpMap">
+		<id property="deptno" column="deptno"></id>
+			<result property="dname" column="dname"></result>
+			<result property="loc" column="loc"></result>
+	<!-- 配置deptVO中的empvos集合 -->
+	<collection property="empvos" ofType="EmpVO">
+		<id property="empno" column="empno"></id>
+		<result property="empno" column="empno"></result>
+		<result property="ename" column="ename"></result>
+		<result property="job" column="job"></result>
+		<result property="hiredate" column="hiredate"></result>
+		<result property="sal" column="sal"></result>
+		<result property="comm" column="comm"></result>
+		<result property="deptno" column="deptno"></result>
+		<association property="deptVO" column="deptno" javaType="com.dept.model.DeptVO">
+			<result property="dname" column="dname"></result>
+			<result property="loc" column="loc"></result>
+		</association>
+	</collection>
+	</resultMap>
+	
+	<select id="getAll" resultMap="deptEmpMap">
+		select * from dept2 join EMP2 on emp2.DEPTNO = DEPT2.DEPTNO
+	</select>
+</mapper>

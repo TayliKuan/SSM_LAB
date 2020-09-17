@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.emp.model.EmpDAO_interface">
+
+<!-- 定義封裝 emp和dept的resultMap -->
+	<resultMap type="EmpVO" id="empDeptMap">
+		<id property="empno" column="empno"></id>
+		<result property="empno" column="empno"></result>
+		<result property="ename" column="ename"></result>
+		<result property="job" column="job"></result>
+		<result property="hiredate" column="hiredate"></result>
+		<result property="sal" column="sal"></result>
+		<result property="comm" column="comm"></result>
+		<result property="deptno" column="deptno"></result>
+		
+		<!-- 一/多對一中 封裝DeptVO的內容 
+		select 指定內容 查DeptVO的標示
+		column 根據DeptVO的deptno查詢 要得值		
+		-->
+		<association property="deptVO" column="deptno" javaType="com.dept.model.DeptVO" select="com.dept.model.DeptDAO_interface.findByPrimaryKey"></association>
+	</resultMap>
+	
+	<!--查詢全部 包含DEPT -->
+	
+	<select id="getAll" resultMap="empDeptMap">
+		select * from emp2
+	</select>
+	
+</mapper>

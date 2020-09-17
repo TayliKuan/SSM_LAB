@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dept.dao.DeptIN">
+
+	<resultMap type="com.dept.model.DeptDoMain" id="deptwithemps">
+		<id column="deptno" property="deptno"></id>
+		<result column="dname" property="dname"></result>
+		<result column="loc" property="loc"></result>
+		<collection property="emps" ofType="com.emp.model.EmpDoMain"
+			column="deptno" select="com.emp.dao.EmpIN.getOne">
+		</collection>
+	</resultMap>
+
+	<select id="getOne" resultType="com.dept.model.DeptDoMain">
+		select* from dept2 where
+		deptno=#{deptno}
+	</select>
+
+	<select id="getAll" resultMap="deptwithemps">
+		select* from dept2 order by
+		deptno
+	</select>
+
+	<insert id="insert" parameterType="com.dept.model.DeptDoMain">
+		insert into dept2 values(dept2_seq.NEXTVAL,#{dname},#{loc})
+	</insert>
+</mapper>

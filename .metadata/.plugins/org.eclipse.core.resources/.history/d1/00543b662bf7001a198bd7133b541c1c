@@ -1,0 +1,5 @@
+package tw.gov.bli;
+
+public enum dept {
+
+}

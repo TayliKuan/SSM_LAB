@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;build.gradle&apos; to &apos;IBM_emp_0604_Spring5_AOP_Annotation_Around&apos;&#x0D;&#x0A;- Original project: &apos;IBM_emp_0603_Spring5_AOP_Annotation&apos;&#x0D;&#x0A;- Destination element: &apos;IBM_emp_0604_Spring5_AOP_Annotation_Around&apos;&#x0D;&#x0A;- Original element: &apos;build.gradle&apos;" description="Copy file" element1="build.gradle" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1597800188231" target="/IBM_emp_0604_Spring5_AOP_Annotation_Around" units="0" version="1.0"/>
+</session>

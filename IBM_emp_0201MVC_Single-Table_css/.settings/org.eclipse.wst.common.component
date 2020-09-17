@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="IBM_emp_0201MVC_Single-Table_css">
+		<property name="context-root" value="IBM_emp_0201MVC_Single-Table_css"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
+		<wb-resource deploy-path="/" source-path="WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+	</wb-module>
+</project-modules>

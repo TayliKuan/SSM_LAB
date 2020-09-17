@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.emp.dao.EmpIN">
+
+	<resultMap type="com.emp.model.EmpDoMain" id="emptodept">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename"/>
+		<result property="job" column="job"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<result property="comm" column="comm"/>
+		<result property="deptno" column="deptno"/>
+		<association property="dept" column="deptno" javaType="com.dept.model.DeptDoMain" select="com.dept.dao.DeptIN.getOne"></association>
+	</resultMap>
+	
+	
+	<select id="getAll" resultMap="emptodept">
+		select* from emp2 order by empno
+	</select>
+	
+	<delete id="delete" parameterType="INT">
+		delete from emp2 where empno=#{empno}	
+	</delete>
+	
+	<update id="update" parameterType="com.emp.model.EmpDoMain">
+		update emp2 set ename=#{ename},job=#{job},hiredate=#{hiredate},sal=#{sal},comm=#{comm},deptno=#{deptno} where empno=#{empno}
+	</update>
+	
+	<select id="getOne" resultMap="emptodept" parameterType="INT">
+		select* from emp2 where empno=#{empno}
+	</select>
+	
+	<insert id="insert">
+		insert into emp2 values(emp2_seq.NEXTVAL,#{ename},#{job},#{hiredate},#{sal},#{comm},#{deptno})
+	</insert>
+	
+	<delete id="deletebatch" parameterType="INT">
+		delete from emp2 where empno in
+		 <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+	</delete>
+	
+	<select id="findbycondition" parameterType="com.emp.model.EmpDoMain" resultMap="emptodept">
+		select * from emp2 
+		<where>
+			<if test="ename != null and ename != ''">
+				and ename like #{ename}
+			</if>
+			<if test="deptno != null">
+				and deptno = #{deptno}
+			</if>
+			<if test="hiredate != null">
+				and hiredate = #{hiredate}
+			</if>
+		</where>
+	</select>
+
+</mapper>

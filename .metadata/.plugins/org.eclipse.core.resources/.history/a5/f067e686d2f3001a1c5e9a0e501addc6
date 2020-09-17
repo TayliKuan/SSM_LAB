@@ -1,0 +1,11 @@
+package tw.gov.bli.domain;
+
+import java.io.Serializable;
+
+import lombok.Data;
+@Data
+public class Dept implements Serializable{
+	private String deptno;
+	private String dname;
+	private String loc;
+}

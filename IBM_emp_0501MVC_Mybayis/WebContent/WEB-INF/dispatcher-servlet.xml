@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 通知 spring-webmvc 掃描「某自訂套件」內，是否有被相關Annotation設定為元件的類別  -->
+	<context:component-scan base-package="com" />
+    <!-- 必須使用以下標籤啟用「自訂控制器」內 @Controller 的Annotation支援 -->
+	<mvc:annotation-driven />
+	
+
+    <!-- Internal Resource View (內部資源視圖): -->
+    <!-- 在Spring MVC中，對於好的做法，它總是建議把整個Views或JSP文件放在"WEB-INF"目錄底下， 以保護其免受透過手動輸入網址而直接存取(direct access)。 -->
+    <!-- 放在"WEB-INF"目錄底下的這些Views或JSP文件，被命名為Internal Resource View (內部資源視圖)， 因為它只能由透過servlet或Spring控制器類別來存取。 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	   <property name="prefix" value="/" />
+	   <property name="suffix" value=".jsp" />
+	</bean>
+	
+    <!-- 靜態資源目錄resources，存放如 CSS/JavaScript...等 -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- Spring3.1開始支援-方法級別驗證 (JSR-349 Bean Validation 1.1) -->
+	<bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+	
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.emp.model.EmpDAO_interface">
+	<!--查詢全部  還有說清楚要封裝到哪裡 -->
+	<select id="getAll" resultType="com.emp.model.EmpVO">
+		SELECT
+		empno,ename,job,to_char(hiredate,'yyyy-mm-dd')
+		hiredate,sal,comm,deptno FROM emp2 order by empno
+	</select>
+	
+	<!-- findByPrimaryKey -->
+	<select id="findByPrimaryKey" resultType="com.emp.model.EmpVO">
+	SELECT empno,ename,job,to_char(hiredate,'yyyy-mm-dd') hiredate,sal,comm,deptno FROM emp2 where empno = #{empno}
+	</select>
+	
+	<!-- findByDeptno -->
+	<select id="findByDeptno" parameterType="java.lang.Integer" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where deptno like #{deptno}
+	</select>
+	
+	<!-- findByName -->
+	<select id="findByName" parameterType="String" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where ename like #{ename}
+	</select>
+	
+	<!-- 根據QueryVO條件查EMP 多方組成可查詢對象-->
+	<select id="findEmpVOByVO" parameterType="com.emp.model.QueryVO" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where ename like #{empVO.ename}
+	</select>
+	
+	<!-- 根據條件查詢-->
+	<select id="findEmpVOByCondition" resultType="com.emp.model.EmpVO" parameterType="empVO" >
+	SELECT * FROM emp2 where 1=1
+	<if test="empno != null">
+	empno = #{empno}
+	</if>
+	</select>
+</mapper>

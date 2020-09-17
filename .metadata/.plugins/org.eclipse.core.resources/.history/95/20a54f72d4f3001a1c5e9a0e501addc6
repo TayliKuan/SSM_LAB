@@ -1,0 +1,45 @@
+package tw.gov.bli.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.stereotype.Repository;
+
+import tw.gov.bli.baseDao.BaseDao;
+import tw.gov.bli.domain.Dept;
+import tw.gov.bli.domain.User;
+
+@Repository
+public class DeptDaoImpl extends BaseDao implements DeptDao{
+
+	@Override
+	public List<Dept> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insert(Dept dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Dept dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String deptno) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Set<Dept> getUsersByDeptno(Integer deptno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

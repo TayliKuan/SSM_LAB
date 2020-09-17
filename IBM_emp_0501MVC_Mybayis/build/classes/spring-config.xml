@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:/comp/env/jdbc/TestDB" />
+	</bean>
+	
+<!-- .........................................................-->
+<!-- 配置多個資料庫時設置 -->
+<!-- 	<bean id="databaseIdProvider" -->
+<!-- 		class="org.apache.ibatis.mapping.VendorDatabaseIdProvider"> -->
+<!-- 		<property name="properties"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="Oracle">oracle</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+<!-- .........................................................-->
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	
+<!-- .........................................................-->	
+	<!--創建工廠 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations">
+		    <list>
+		        <value>com/emp/model/empMapper.xml</value>
+		        <value>com/dept/model/deptMapper.xml</value>
+		    </list>
+		</property>
+<!-- 配置多個資料庫時設置 -->
+<!-- 	<property name="databaseIdProvider" ref="databaseIdProvider"/> -->
+	</bean>
+
+<!-- .........................................................-->
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+<!-- .........................................................-->
+	<bean id="empDAO" class="com.emp.model.EmpDAO">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+	
+	<bean id="deptDAO" class="com.dept.model.DeptDAO">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+    <typeAliases>
+    <package name="com.emp.model"></package>
+  </typeAliases>
+  <!-- 配置環境 -->
+  	<environments default="oracle">
+  	  <!-- 配置oracle環境 -->
+  		<environment id="oracle">
+  			<transactionManager type="JDBC"></transactionManager>
+  			<!-- 配置連接池 -->
+  			<dataSource type="POOLED">
+  				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+  				<property name="username" value="TESTG"/>
+  				<property name="password" value="123456"/>
+  				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+  			</dataSource>
+  		</environment>
+  	</environments>
+  	<!-- 針對DAO映射配置文件的位置 -->
+  	<mappers>
+  		<mapper resource="com/emp/model/EmpDao.xml"/>
+  	</mappers>
+  </configuration>

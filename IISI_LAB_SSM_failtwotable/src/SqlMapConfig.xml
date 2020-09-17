@@ -1,0 +1,53 @@
+<!-- 已被接管不需要了 原碼 出非要用lazyLoadingEnabled-->
+<!-- 
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  <settings>
+  
+   -->
+    <!-- 開啟Mybatis支持延遲加載 -->
+     <!-- 開啟lazyLoadingEnabled 預設是不開 -->
+  	 <!--<setting name="lazyLoadingEnabled" value="ture"></setting>-->
+  	 <!-- aggressiveLazyLoading 預設就是FALSE -->
+<!--   	<setting name="aggressiveLazyLoading" value="false"></setting> -->
+<!--   	</settings> -->
+<!--   <typeAliases> -->
+<!--     <package name="tw.gov.bli.domain"></package> -->
+<!--   </typeAliases> -->
+
+ <!-- 配置環境 -->
+  <!-- 開發中不用 JNDI
+  	<environments default="oracle">
+  	 <environment id="oracle">
+            <transactionManager type="JDBC" />
+            <dataSource type="JNDI">
+                <property name="data_source" value="jdbc/TestDB"/>
+                <property name="initial_context" value="java:/comp/env"/>
+            </dataSource>
+        </environment>
+  	</environments>
+  	-->
+  	 <!-- 配置環境 -->
+<!--   	<environments default="oracle"> -->
+  	  <!-- 配置oracle環境 -->
+<!--   		<environment id="oracle"> -->
+<!--   			<transactionManager type="JDBC"></transactionManager> -->
+  			<!-- 配置連接池 -->
+<!--   			<dataSource type="POOLED"> -->
+<!--   				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/> -->
+<!--   				<property name="username" value="IISI"/> -->
+<!--   				<property name="password" value="123456"/> -->
+<!--   				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/> -->
+<!--   			</dataSource> -->
+<!--   		</environment> -->
+<!--   	</environments> -->
+  	<!-- 針對DAO映射配置文件的位置 -->
+<!--   	<mappers> -->
+<!--   		<mapper resource="tw/gov/bli/dao/UserDao.xml"/> -->
+<!--   	</mappers> -->
+<!--   </configuration> -->
+

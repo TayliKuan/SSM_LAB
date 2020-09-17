@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+   <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:/comp/env/jdbc/TestDB"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+ 
+    
+  <mappers>
+    <mapper resource="com/dept/model/deptMapper.xml"/>
+    <mapper resource="com/emp/model/empMapper.xml"/>
+  </mappers>
+  
+</configuration>

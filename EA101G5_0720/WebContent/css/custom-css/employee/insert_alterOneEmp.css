@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.table-success, .table-success>td, .table-success>th {
+	width:90%;
+}
+
+#main {
+	margin-left: 5px;
+}
+
+#confirm {
+	margin-left: 46%;
+}
+
+#previewPic {
+	height: 180px;
+	width: 150px;
+}

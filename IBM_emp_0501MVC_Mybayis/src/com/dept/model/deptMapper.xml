@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dept.model.DeptDAO_interface">
+		
+    <resultMap type="com.dept.model.DeptVO" id="deptVO">
+    	<id column="DEPTNO" property="deptno"></id>
+    	<result column="DNAME" property="dname"></result>
+        <result column="LOC" property="loc"></result>
+        <collection property="emps" ofType="com.emp.model.EmpVO" column="DEPTNO" select="com.emp.model.EmpDAO_interface.findByDeptno">
+        </collection>
+    </resultMap>
+    
+	<select id="getAll" resultMap="deptVO">
+		SELECT * FROM dept2 
+	</select>
+
+	<select id="findByPrimaryKey" parameterType="Integer" resultMap="deptVO">
+		SELECT * FROM dept2 where DEPTNO = #{deptno}
+	</select>
+	
+    <select id="getEmpsByDeptno"  parameterType="Integer" resultMap="deptVO">
+	    SELECT * FROM dept2 where DEPTNO = #{deptno}
+	</select>
+	
+	<insert id="insert" parameterType="com.dept.model.DeptVO">
+		
+	    <selectKey resultType="int" order="BEFORE" keyProperty="deptno">
+        SELECT dept2_seq.NEXTVAL from dual
+    	</selectKey>
+		begin
+		
+        INSERT INTO DEPT2 (DEPTNO,DNAME,LOC) VALUES (#{deptno},#{dname},#{loc});
+        
+        <foreach collection="emps" item="emp" separator=";">
+	    INSERT INTO EMP2 (EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO) VALUES 
+	    (emp2_seq.NEXTVAL, #{emp.ename}, #{emp.job},#{emp.hiredate}, #{emp.sal}, #{emp.comm}, #{deptno})
+	    </foreach>
+		;end;
+	</insert>
+		
+	<update id="update" parameterType="com.dept.model.DeptVO">
+		UPDATE dept2 set DNAME=#{dname}, LOC=#{loc} where DEPTNO = #{deptno}
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM dept2 where DEPTNO = #{deptno}
+	</delete>
+	
+</mapper>

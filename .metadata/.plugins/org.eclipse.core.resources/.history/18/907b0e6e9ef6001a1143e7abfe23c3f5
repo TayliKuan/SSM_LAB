@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="IBM_emp_0501MVC_Mybayis">
+        <property name="context-root" value="IBM_emp_0501MVC_Mybayis"/>
+    </wb-module>
+</project-modules>

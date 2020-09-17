@@ -1,0 +1,17 @@
+package tw.gov.bli.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.stereotype.Repository;
+
+import tw.gov.bli.baseDao.BaseDao;
+import tw.gov.bli.domain.Dept;
+import tw.gov.bli.domain.User;
+
+@Repository
+public class DeptDaoImpl extends BaseDao implements DeptDao{
+	
+
+
+}

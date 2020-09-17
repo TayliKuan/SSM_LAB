@@ -1,0 +1,5 @@
+package tw.gov.bli.domain;
+
+public class DEPT {
+
+}

@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8b300;
+    border-radius:15px;
+    width: 800px;
+    height: 450px;
+   /* For Neumorphism Effect */
+}   
+.wallet{
+    display: block;
+    position: absolute;
+   	background-color: #0984e3;
+    height: 200px;
+    width: 250px;
+    border-radius: 15px;
+    z-index: 10;
+    opacity: 1.0;
+}
+.walletb{  
+    position: relative;
+    right: -13%;
+    height: 200px;
+    width: 250px;
+    background-color: #085997;
+    border-top-right-radius: 15px;
+    border-radius: 25px;
+    z-index: 1;
+}
+.lock{
+    position: relative;
+    background-color: #0a64a8d5;
+    height: 22%;
+    width: 25%;
+    left: 81%;
+    top: 35%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.circle{
+    position: relative;
+    border-radius: 50%;
+    background-color: #eaf2f8e1;
+    width: 15px;
+    height: 15px;
+    top: 29%;
+    left: 45%;
+    z-index: 99999;
+}
+.money{
+    display: block;
+    position: relative;
+    background-color: #00b894;
+    width: 192px;
+    height: 150px;
+    bottom: 18%;
+    right: 15%;
+    transform: rotate(-30deg);
+    z-index: 5;
+    animation-name: wallet; 
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+
+
+h1{
+    position: relative;
+    font-size: 5em;
+    left: 72%;
+    bottom: 10%;
+    color: #026955c5;
+}
+
+#point{
+      text-align:center;
+      margin-top:40px;
+      color:#FFFFFF;
+      font-size:25px
+}
+
+#text{
+    margin-top:350px;
+    z-index:999;
+    text-align:center
+}
+
+@keyframes wallet{
+    0%{
+        bottom:4%;
+        transform: rotate(10deg);
+       
+    }
+    15%{
+        bottom: 10%;
+        transform: rotate(-10deg);
+
+    }
+    25%{
+        bottom:14%;
+        transform: rotate(-20deg);
+        
+    }
+    50%{
+        bottom:16%;
+        transform: rotate(-27deg);
+        
+    }
+    100%{
+        bottom:18%;
+        transform: rotate(-30deg);
+    }
+}

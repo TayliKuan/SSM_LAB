@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emp.model.EmpDAO_interface">
+	
+	<resultMap type="com.emp.model.EmpVO" id="empVO">
+			<id column="EMPNO" property="empno"></id>
+			<result column="ENAME" property="ename"></result>
+			<result column="JOB" property="job"></result>
+			<result column="HIREDATE" property="hiredate"></result>
+			<result column="SAL" property="sal"></result>
+			<result column="COMM" property="comm"></result>
+		<association property="deptVO" column="DEPTNO" javaType="com.dept.model.DeptVO" select="com.dept.model.DeptDAO_interface.findByPrimaryKey">
+		</association>
+	</resultMap>
+	
+	<select id="getAll" resultMap="empVO">
+	    SELECT * FROM EMP2 ORDER BY EMPNO
+	</select>
+		
+	<select id="findByPrimaryKey" parameterType="Integer" resultMap="empVO">
+	    SELECT * FROM EMP2 where EMPNO  = #{empno}
+	</select>
+	
+	<select id="findByDeptno" parameterType="Integer" resultType="com.emp.model.EmpVO">
+	    SELECT * FROM EMP2 where DEPTNO = #{deptno}
+	</select>
+	
+	<insert id="insert" parameterType="com.emp.model.EmpVO" >
+	    INSERT INTO EMP2 (EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO) 
+	    VALUES (emp2_seq.NEXTVAL, #{ename}, #{job},#{hiredate}, #{sal}, #{comm}, #{deptVO.deptno})
+	</insert>
+	
+	<insert id="inserts" parameterType="java.util.List" >
+	    
+	    
+        <foreach collection="list" item="emp" index="index" open="begin" close=";end;" separator=";">
+	    INSERT INTO EMP2 (EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO) VALUES 
+	    (emp2_seq.NEXTVAL, #{emp.ename}, #{emp.job},#{emp.hiredate}, #{emp.sal}, #{emp.comm}, #{emp.deptVO.deptno})
+	    </foreach>
+	</insert>
+	
+	<update id="update" parameterType="com.emp.model.EmpVO">
+	    UPDATE EMP2 set ENAME=#{ename}, JOB=#{job}, Hiredate=#{hiredate}, SAL=#{sal}, COMM=#{comm}, DEPTNO=#{deptVO.deptno} 
+	    where EMPNO = #{empno}
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+	    DELETE FROM EMP2 where EMPNO = #{empno}
+	</delete>
+	
+</mapper>

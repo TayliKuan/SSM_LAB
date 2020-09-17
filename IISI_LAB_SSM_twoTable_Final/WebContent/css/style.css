@@ -1,0 +1,64 @@
+
+    html, body{
+   height: 100%;
+   font-family:'微軟正黑體';
+   }
+
+   header{
+       width:100vw;
+       height:50px;
+       background-color: #FBDA61;
+       background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+
+
+       text-align:center;
+       margin-bottom:50px;
+       box-shadow: -1px 7px 5px #999999;
+       -webkit-box-shadow: -1px 7px 5px #999999;
+       -moz-box-shadow: -1px 7px 5px #999999;
+       
+   }
+
+   .header-title{
+       font-weight: 900;
+       font-size:25pt;
+       text-shadow: 0.03em 0.03em #a8a8a8;
+       color:#ffffff;
+   }
+
+   .tablestyle{
+       text-align:center;
+       vertical-align: middle;
+   }
+
+   .wrapper{
+       min-height: 100%;
+   }
+   .searchtitle{
+       background-color:#dd5555;
+       height:50px;
+       padding:5px;
+       text-align:center;
+       font-weight: 900;
+   }
+   .searchbody{
+       background-color:#e6e6e6;
+       padding:5px;
+       height:50px;
+   }
+   .footer{
+       position: absolute;
+       bottom: 0;
+       width:100vw;
+   }
+   fieldset {
+           padding: .35em .625em .75em;
+           margin: 0 2px;
+           border: 1px solid silver;
+       }
+
+       legend {
+           padding: .5em;
+           border: 0;
+           width: auto;
+       }

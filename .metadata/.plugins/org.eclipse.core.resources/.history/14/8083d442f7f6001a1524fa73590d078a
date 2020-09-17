@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tw.gov.bli.dao.UserDao">
+
+<!-- 定義封裝resultMap -->
+	<resultMap type="tw.gov.bli.domain.User" id="UserMap">
+		<id property="uno" column="uno"></id>
+		<result property="uno" column="uno"></result>
+		<result property="username" column="username"></result>
+		<result property="userid" column="userid"></result>
+		<result property="sex" column="sex"></result>
+		<result property="address" column="address"></result>
+		<result property="phone" column="phone"></result>
+		<result property="birthday" column="birthday"></result>
+		<result property="joindate" column="joindate"></result>
+		<result property="deptno" column="deptno"></result>
+		
+		<association property="dept" column="DEPTNO" javaType="tw.gov.bli.domain.Dept" >
+			<result property="dname" column="dname"></result>
+			<result property="loc" column="loc"></result>
+		</association>	
+	</resultMap>
+<!-- select="tw.gov.bli.dao.DeptDao.findByPrimaryKey" -->
+
+	<!--查詢全部 -->
+	<select id="findAll" resultMap="UserMap">
+		
+		select users.*,dname,loc from users,DEPT where users.DEPTNO = DEPT.DEPTNO order by uno
+<!-- 		select *from users	 -->
+	</select>
+
+	<!--insert -->
+	<insert id="insert" parameterType="tw.gov.bli.domain.User">
+		<!-- 拿到自增主鍵值 -->
+	<selectKey keyProperty="uno" keyColumn="uno" resultType="String" order="AFTER">
+ 		SELECT emp2_seq.CURRVAL FROM DUAL
+ 	</selectKey>
+		INSERT INTO users VALUES
+		(USERS_seq.NEXTVAL,#{username}, #{userid}, #{sex}, #{address}, #{phone},#{birthday}, #{joindate},#{dept.deptno})
+	</insert>
+	
+	<!--update -->
+	<update id="update" parameterType="tw.gov.bli.domain.User">
+	UPDATE users set username=#{username}, userid=#{userid}, sex=#{sex}, address=#{address}, phone=#{phone}, birthday=#{birthday},joindate=#{joindate},deptno=#{dept.deptno} where uno = #{uno}
+	</update>
+	
+	<!--delete -->
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM users where uno = #{uno}
+	</delete>
+
+	<!-- ***根據條件查詢 可以查很多條件 複合查詢-->
+	<select id="findUserByCondition" resultType="tw.gov.bli.domain.User" parameterType="tw.gov.bli.domain.User" >
+select *from users		<where>
+			<if test="username != null">
+			and username like  '%'|| #{username} ||'%'
+			</if>
+			<if test="sex != null">
+			and sex = #{sex}
+			</if>
+			<if test="userid != null">
+			and userid like '%' || #{userid} ||'%'
+			</if>
+			<if test="birthday != null">
+			and birthday = #{birthday}
+			</if>
+			<if test="deptno != null">
+			and deptno = #{dept.deptno}
+			</if>
+		</where>
+	</select>
+	
+	<!-- findByPrimaryKey -->
+	<select id="findByPrimaryKey" resultType="tw.gov.bli.domain.User">
+	SELECT * FROM users where uno = #{uno}
+	</select>
+</mapper>

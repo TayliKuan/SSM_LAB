@@ -1,0 +1,150 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8		         //設定編譯階段的JDK版本
+sourceSets.main.java.srcDir  'src'	     //使用src目錄放置Java程式原始碼      (gradle原預設位置是src/main/java目錄)
+sourceSets.main.resources.srcDir  'src'	 //使用src目錄放置resources原始碼 (gradle原預設位置是src/main/resources目錄) (在進行cargoRedeployRemote以熱部署匯出war檔時，將可包含xml檔)
+                                                                     
+webAppDirName = 'WebContent'		     //使用WebContent目錄放置網頁資源
+									
+repositories {
+	mavenCentral()					     //使用 maven central repository (中央存儲庫)
+}
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+    
+    // 由於需要oracle的官方授權，因此Oracle JDBC驅動程式 ojdbc6.jar，不在Maven Central中央儲存庫中 -->
+    // 因此另外添加一個單獨的存儲庫，如下 -->
+    maven() {
+       url "https://download.oracle.com/maven"
+     //url "https://code.lds.org/nexus/content/groups/main-repo"
+    }
+}
+
+// 設置依賴
+// Maven 中央儲存庫網址 https://mvnrepository.com
+// 以下除ojdbc6.jar外，皆搜尋取自 Maven 中央儲存庫
+// (依需要)自行加入會用到的函式庫Library套件，格式如下 :<groupId> : <artifactId> : <version>
+dependencies {
+    
+    // =====================================================================================
+    // 以下為 Spring Boot 使用
+    
+    // 用途說明1: Inherit defaults from Spring Boot
+    compile("org.springframework.boot:spring-boot-starter-parent:2.1.6.RELEASE"){
+                exclude(module: "spring-boot-starter-logging")
+    }
+    
+    // 用途說明2: Add typical dependencies for a web application -->
+    compile("org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE"){
+                exclude(module: "spring-boot-starter-logging")
+    }
+    
+    // 用途說明3: Starter for using Spring Data JPA with Hibernate -->
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE") {
+                exclude(module: "spring-boot-starter-logging")
+    }
+    
+    // 用途說明4: 用途說明4: for log4j.properties -->
+	//	<!-- Spring Boot日誌系統預設是使用logback -->
+	//	<!-- 對於習慣了log4j的開發者，Spring Boot依然有很好的支援 -->
+	//	<!-- 不過我們在引入log4j之前，需要先排除該logback jar的依賴(如上所示)，再引入log4j的依賴(如下所示): -->
+    compile("org.springframework.boot:spring-boot-starter-log4j:1.3.8.RELEASE")
+    
+    // =====================================================================================
+	// 以下為 Web App 預備使用
+    
+    // Servlet 4.0.1   <!-- spring-boot 已內建 Servlet 4..01 依賴，但預設未下載 -->
+    providedCompile("javax.servlet:javax.servlet-api:4.0.1")
+    
+    // jstl            <!-- spring-boot 未內建依賴 -->
+    runtime("org.apache.taglibs:taglibs-standard-impl:1.2.5")
+    // jstl            <!-- spring-boot 未內建依賴 -->
+    runtime("org.apache.taglibs:taglibs-standard-spec:1.2.5")
+    
+    // websocket       <!-- spring-boot 已內建依賴，但預設未下載 -->
+    providedCompile("javax.websocket:javax.websocket-api:1.1")
+    
+    // javax.json      <!-- spring-boot 未內建依賴 -->
+    compile("org.glassfish:javax.json:1.1.2")
+    
+    // com.sun.mail    <!-- spring-boot 已內建依賴，但預設未下載 -->
+    compile("com.sun.mail:javax.mail:1.6.2")
+    
+    
+    // ========================================================================
+	// 以下為 ojdbc6.jar JDBC driver 下載用 -->
+    compile("com.oracle:ojdbc6:11.2.0.3")
+    
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework/spring-web
+    compile group: 'org.springframework', name: 'spring-web', version: '5.2.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.mybatis/mybatis
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.5.2'
+    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.0.17.Final'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    
+   // https://mvnrepository.com/artifact/junit/junit
+testCompile group: 'junit', name: 'junit', version: '4.12'
+
+	
+    
+}
+
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.bmuschko:gradle-cargo-plugin:2.2.2'
+	}
+}
+
+//使用gradle-cargo-plugin熱部署(輕量級)war
+//需先啟動Tomcat，並於tomcat-users.xml添加：<user password="manager-script" roles="manager-script" username="manager-script"/>
+apply plugin: 'com.bmuschko.cargo'
+cargo {
+    containerId = 'tomcat9x'
+    port = 8081
+    remote {
+		protocol = 'http'
+		hostname = 'localhost'
+		username = 'manager-script'
+		password = 'manager-script'
+    }
+}
+
+//Eclipse Project Facets 只有在 Dynamic Web Project 時才有功能，只是方便"快速擴充套件" 與 "控管套件版本"
+import org.gradle.plugins.ide.eclipse.model.Facet
+eclipse {
+	wtp {
+		facet {
+			facet name: 'jst.web', type: Facet.FacetType.fixed
+			facet name: 'jst.web', version: '3.1'
+
+			facet name: 'jst.java', type: Facet.FacetType.fixed
+			facet name: 'jst.java', version: '1.8'
+			
+			facet name: 'wst.jsdt.web', type: Facet.FacetType.fixed
+			facet name: 'wst.jsdt.web', version: '1.0'
+		}
+	}
+}
+
+//在進行cargoRedeployRemote以熱部署匯出war檔時，將可包含xml檔與java原始檔
+war {
+    webInf{
+        from('src') {
+            include '**/*.*'
+            into('classes/')
+        }
+           
+    }
+}

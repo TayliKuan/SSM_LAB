@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.emp.model.EmpDAO_interface">
+
+<!-- 定義封裝 emp和dept的resultMap -->
+	<resultMap type="EmpVO" id="empDeptMap">
+		<id property="empno" column="empno"></id>
+		<result property="empno" column="empno"></result>
+		<result property="ename" column="ename"></result>
+		<result property="job" column="job"></result>
+		<result property="hiredate" column="hiredate"></result>
+		<result property="sal" column="sal"></result>
+		<result property="comm" column="comm"></result>
+		<result property="deptno" column="deptno"></result>
+		<association property="deptVO" column="deptno" javaType="com.dept.model.DeptVO">
+			<result property="dname" column="dname"></result>
+			<result property="loc" column="loc"></result>
+		</association>
+	</resultMap>
+	
+	<!--查詢全部 包含DEPT -->
+	
+	<select id="getAll" resultMap="empDeptMap">
+		select emp2.*,dname,loc from emp2,DEPT2 where emp2.DEPTNO = DEPT2.DEPTNO
+	</select>
+	
+	<!--抽取重複的SQL語句 -->
+	<sql id="defaultEmpVO">
+		SELECT * FROM emp2
+	</sql>
+	<!--查詢全部  還有說清楚要封裝到哪裡 -->
+	<!--
+	<select id="getAll" resultType="com.emp.model.EmpVO">
+		SELECT
+		empno,ename,job,to_char(hiredate,'yyyy-mm-dd')
+		hiredate,sal,comm,deptno FROM emp2 order by empno
+	</select>
+	-->
+	<!--insert -->
+	<insert id="insert" parameterType="com.emp.model.EmpVO">
+	<!-- 拿到自增主鍵值 -->
+	<selectKey keyProperty="empno" keyColumn="empno" resultType="int" order="AFTER">
+ 		SELECT emp2_seq.CURRVAL FROM DUAL
+ 	</selectKey>
+		INSERT INTO emp2(empno,ename,job,hiredate,sal,comm,deptno) VALUES
+		(emp2_seq.NEXTVAL,#{ename}, #{job}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+	</insert>
+	
+	<!--update -->
+	<update id="update" parameterType="com.emp.model.EmpVO">
+	UPDATE emp2 set ename=#{ename}, job=#{job}, hiredate=#{hiredate}, sal=#{sal}, comm=#{comm}, deptno=#{deptno} where empno = #{empno}
+	</update>
+	
+	<!--delete -->
+	<delete id="delete" parameterType="java.lang.Integer">
+		DELETE FROM emp2 where empno = #{no}
+	</delete>
+	
+	<!-- findByPrimaryKey -->
+	<select id="findByPrimaryKey" resultType="com.emp.model.EmpVO">
+	SELECT empno,ename,job,to_char(hiredate,'yyyy-mm-dd') hiredate,sal,comm,deptno FROM emp2 where empno = #{empno}
+	</select>
+	
+	<!-- findByDeptno -->
+	<select id="findByDeptno" parameterType="java.lang.Integer" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where deptno like #{deptno}
+	</select>
+	
+	<!-- findByName -->
+	<select id="findByName" parameterType="String" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where ename like #{ename}
+	</select>
+	
+	<!-- findtotal 查總數 -->
+	<select id="findTotal" resultType="int">
+	SELECT count(empno) from emp2
+	</select>
+	
+	<!-- 根據QueryVO條件查EMP 多方組成可查詢對象-->
+	<select id="findEmpVOByVO" parameterType="com.emp.model.QueryVO" resultType="com.emp.model.EmpVO">
+	SELECT * FROM emp2 where ename like #{empVO.ename}
+	</select>
+	
+	<!-- ***根據條件查詢 可以查很多條件 複合查詢-->
+	<select id="findEmpVOByCondition" resultType="com.emp.model.EmpVO" parameterType="EmpVO" >
+	SELECT * FROM emp2
+		<where>
+			<if test="ename != null">
+			and ename like #{ename}
+			</if>
+			<if test="deptno != null">
+			and deptno like #{deptno}
+			</if>
+		</where>
+	</select>
+	
+	<!-- ***這可以
+	<select id="findEmpVOByCondition" resultType="com.emp.model.EmpVO" parameterType="EmpVO" >
+	SELECT * FROM emp2
+	<if test="ename != null">
+	where ename like #{ename}
+	</if>
+	</select>
+	 -->
+	<!-- ***這也可以
+	<select id="findEmpVOByCondition" resultType="com.emp.model.EmpVO" parameterType="EmpVO" >
+	SELECT * FROM emp2 where 1=1
+	<if test="ename != null">
+	and ename like #{ename}
+	</if>
+	</select>
+	 -->
+	<!-- ***根據Queryvo中的empnos集合 查詢列表-->
+	<select id="findEmpNos" resultType="com.emp.model.EmpVO" parameterType="QueryVO" >
+		<!-- 使用SQL跟include標籤-->
+		<include refid="defaultEmpVO"></include>
+		<where>
+			<if test="empnos != null and empnos.size()>0">
+				<foreach collection="empnos" open="and empno in (" close=")" item="eno" separator=",">
+					#{eno}
+				</foreach>
+			</if>
+		</where>
+	</select> 
+</mapper>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="12">
+    <list key="modules" value0="IISI_LAB_SSM_final10::org.eclipse.jst.j2ee.server:IISI_LAB_SSM_final10::jst.web::2.4" value1="IISI_LAB_SSM::org.eclipse.jst.j2ee.server:IISI_LAB_SSM::jst.web::2.4" value2="IISI_LAB_SSM_final11::org.eclipse.jst.j2ee.server:IISI_LAB_SSM_final11::jst.web::2.4" value3="IISI_LAB_SSM_failtwotable::org.eclipse.jst.j2ee.server:IISI_LAB_SSM_failtwotable::jst.web::2.4" value4="EmpTest2::org.eclipse.jst.jee.server:EmpTest2::jst.web::3.1" value5="EmpTestNew::org.eclipse.jst.jee.server:EmpTestNew::jst.web::3.1"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="0"/>
+</servers>

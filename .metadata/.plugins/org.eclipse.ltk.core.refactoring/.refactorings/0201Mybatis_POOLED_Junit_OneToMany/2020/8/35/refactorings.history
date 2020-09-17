@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DeptVO.java&apos; to &apos;0201Mybatis_POOLED_Junit_Many(One)ToOne_lazy/src/com.dept.model&apos;&#x0D;&#x0A;- Original project: &apos;0201Mybatis_POOLED_Junit_OneToMany&apos;&#x0D;&#x0A;- Destination element: &apos;0201Mybatis_POOLED_Junit_Many(One)ToOne_lazy/src/com.dept.model&apos;&#x0D;&#x0A;- Original element: &apos;com.dept.model.DeptVO.java&apos;" description="Copy compilation unit" destination="=0201Mybatis_POOLED_Junit_Many\(One)ToOne_lazy/src=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.dept.model" element1="/src=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.dept.model{DeptVO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1598158339885" units="1" version="1.0"/>
+</session>
