@@ -41,7 +41,7 @@
 							<td>單位編號</td>
 							<td>單位</td>
 							<td>地點</td>
-							<td></td>
+							<td>刪除單位及客戶</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -54,7 +54,11 @@
 							<td><c:out value="${dept.deptno}" /></td>
 							<td><c:out value="${dept.dname}" /></td>
 							<td><c:out value="${dept.loc}" /></td>
-
+							<td>
+							<form:form action="delAll.action" method="post" modelAttribute="dept">
+							<button type="submit" name="action" value="delAll" class="btn btn-outline-dark btn-block">刪除</button>
+							</form:form>
+							</td>
 						<tr>
 							<td>客戶編號</td>
 							<td>姓名</td>

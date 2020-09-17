@@ -1,6 +1,5 @@
 package tw.gov.bli.dept.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,21 +7,19 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import tw.gov.bli.dept.domain.Dept;
 import tw.gov.bli.dept.service.DeptService;
 import tw.gov.bli.log.logTest;
 import tw.gov.bli.user.domain.User;
-import tw.gov.bli.user.service.UserService;
 
 @Controller
 @RequestMapping("/dept")
@@ -30,113 +27,148 @@ public class DeptController {
 	private static Logger logger = LoggerFactory.getLogger(logTest.class);
 	@Autowired
 	private DeptService deptService;
-	@Autowired
-	private UserService userService;
 
 //------------------------------------------------------------------------------------------------------------------//
-	//查全部 部門+客戶
-			@RequestMapping("/dept_findAll.action")
-			public String findAll(Model model) {
-				//用service的方法
-				List<Dept> list = deptService.findAll();
-				model.addAttribute("list",list);
-				model.addAttribute("Condition",new Dept());
-				//轉JSP的名字
-				return "deptlistAll";
-			}
+	// 查全部 部門+客戶
+	@RequestMapping("/dept_findAll.action")
+	public String findAll(Model model) {
+		// 用service的方法
+		List<Dept> list = deptService.findAll();
+		model.addAttribute("list", list);
+		// 轉JSP的名字
+		return "deptlistAll";
+	}
 //------------------------------------------------------------------------------------------------------------------//
 
-	//進入新增page
-			@RequestMapping("/dept_insert_enter.action")
-			public String insert_enter(Model model, HttpServletRequest req) {
-				//怕有人用幾個暫存之後  沒有要新增 要把他清空
-				if(req.getSession().getAttribute("users") != null) {
-					ArrayList<User> list = (ArrayList) req.getSession().getAttribute("users");
-					list.clear();//清空
-				}
-				model.addAttribute("dept",new Dept());
-				return "deptinsert";
-			}
+	// 進入新增page
+	@RequestMapping("/dept_insert_enter.action")
+	public String insert_enter(Model model, HttpServletRequest req) {
+		// 怕有人用幾個暫存之後 沒有要新增 要把他清空
+		if (req.getSession().getAttribute("sessiondept") != null) {
+			// 把session清空 再進去
+			req.getSession().removeAttribute("sessiondept");
+		}
+		// 要記得一開始就要給他新的一個dept 不然就會500找不到dept
+		model.addAttribute("dept", new Dept());
+		return "deptinsert";
+	}
+
 //------------------------------------------------------------------------------------------------------------------//
-			//新增部門與員工
-			@PostMapping("/deptinsert.action")
-			public String insert(@Valid Dept dept,BindingResult result,
-					@RequestParam String action,Model model, HttpServletRequest req) {
-				//驗證錯誤
-				if(result.hasErrors()) {
-					model.addAttribute("message" , "有錯誤!!! 請再次核對");
-					   return "deptinsert";
-				}
-				//暫存客戶
-				if("暫存客戶".equals(action)) {
-					//第一次新增一個客戶 給他NEW新的
-					if(req.getSession().getAttribute("users") == null) {
-						List<User> list = new ArrayList<>();//給一個容器裝USER
-						list.add(dept.getUser());//拿到一個user	
-						req.getSession().setAttribute("users", list);
-						req.getSession().setAttribute("dept", dept);
-					}else {
-					//之後建立的 沿用 加上拿回之前的LIST
-						ArrayList<User> list = (ArrayList) req.getSession().getAttribute("users");
-						list.add(dept.getUser());
-						req.getSession().setAttribute("dept", dept);					
+	// 新增部門與員工
+	@PostMapping("/deptinsert.action")
+	public String insert(@Valid Dept dept, BindingResult result, @RequestParam String action, Model model,
+			HttpServletRequest req) {
+		
+		// 驗證錯誤
+		if (result.hasErrors()) {
+			model.addAttribute("message", "有錯誤!!! 請再次核對");
+			return "deptinsert";
+		}
+		
+		// 暫存客戶
+		if ("saveOneUser".equals(action)) {
+			// 第一次新增一個客戶 給他NEW新的
+			if (req.getSession().getAttribute("sessiondept") == null) {
+				//session 沒有就給他一個新的
+				Dept sessiondept = new Dept();
+				//把從頁面傳過來的@Valid Dept dept 複製一分到session去
+				//之後都用session操作
+				BeanUtils.copyProperties(dept, sessiondept);
+				//session拿Dept的Users容器  裝從頁面傳過來的@Valid Dept dept的User
+				sessiondept.getUsers().add(dept.getUser());
+				//把裝好User的session set回去session
+				req.getSession().setAttribute("sessiondept", sessiondept);
+
+			} else {
+				//已有Session 就Get回來目前的session 再加入新的User
+				Dept sessiondept = (Dept) req.getSession().getAttribute("sessiondept");
+				sessiondept.getUsers().add(dept.getUser());
+				req.getSession().setAttribute("sessiondept", sessiondept);
+			}
+			//sweetalert
+			model.addAttribute("message", "暫存成功");
+			//回新增頁面
+			return "deptinsert";
+		}
+		
+		// 建立單位與所屬客戶
+		if ("addAll".equals(action)) {
+			//已有Session 就Get回來目前的session
+			Dept sessiondept = (Dept) req.getSession().getAttribute("sessiondept");
+			//執行deptService insert的方法
+			deptService.insert(sessiondept);
+
+			// 用service的方法 再拿到all
+			List<Dept> listAll = deptService.findAll();
+			model.addAttribute("list", listAll);
+			model.addAttribute("message", "全部新增成功");
+
+			return "deptlistAll";
+		}
+		return "deptinsert";
+	}
+//------------------------------------------------------------------------------------------------------------------//
+
+	//enter修改page
+	@RequestMapping("/updateUser_enter.action")
+		public String updateUser_enter(Dept dept,@RequestParam String action,
+				@RequestParam("index") int value,Model model,HttpServletRequest req) {
+			//拿到session
+			Dept sessiondept = (Dept) req.getSession().getAttribute("sessiondept");			
+				if("updateUser".equals(action)){
+						//拿到你要改的那個user index 放到修改上
+						User user = sessiondept.getUsers().get(value);
+						//改完set回去 給下面按鈕處理 理 confirm/quit
+						sessiondept.setUser(user);
+						model.addAttribute("dept",sessiondept);
+						//記得要傳值  給下面按鈕處理 confirm/quit
+						model.addAttribute("value",value);
 					}
-					
-					model.addAttribute("message" , "暫存成功");
-					
-					return "deptinsert";
-				}
-				//建立單位與所屬客戶
-				if("建立單位與所屬客戶".equals(action)) {
-					ArrayList<User> list = (ArrayList) req.getSession().getAttribute("users");
-					dept.setUsers(list);
-					deptService.insert(dept);
-					list.clear();//清空
-
-					//用service的方法  再拿到all
-					List<Dept> listAll = deptService.findAll();
-					model.addAttribute("list",listAll);
-					model.addAttribute("Condition",new Dept());
-					model.addAttribute("message" , "全部新增成功");
-
-					return "deptlistAll";
-				}
-					return "deptinsert";
-				}
-//------------------------------------------------------------------------------------------------------------------//
-			
-			 // 開始修改
-			@RequestMapping("/updateUser.action")
-			public String updateUser(@RequestParam("index") int value,Model model,HttpServletRequest req) {
-				//拿到全部的 users
-				List<User> list =(List<User>) req.getSession().getAttribute("users");
-				//拿到你要改的那個user index
-				User user = list.get(value);
-				//傳回dept
-				Dept dept = (Dept) req.getSession().getAttribute("dept");
-				//把這個放回去上面
-				dept.setUser(user);
-//				userService.update(user);//不行 因為還沒有deptno
-				//已經放上去修改 就讓他移除 一旦修改原暫存會清除 記得不管有沒有改資料 都要再暫存客戶
-				list.remove(value);
-				//modelAttribute="dept" 把你要改的放上去要修改的地方
-				model.addAttribute("dept",dept);
+			return "deptupdate";
+		}
+	
+	//開始修改
+	@RequestMapping("/updateUser.action")
+	public String updateUser(Dept dept,@RequestParam String action,@RequestParam("index") int value,
+			Model model,HttpServletRequest req) {
+		//先拿到session
+		Dept sessiondept = (Dept) req.getSession().getAttribute("sessiondept");			
+			//確認修改 
+			if("confirm".equals(action)) {	
+				//傳index跟要改的這個User回去session
+				sessiondept.getUsers().set(value, dept.getUser());
+				logger.debug("in confirm");
+				//把USER值清空 保留上方dept
+				dept.setUser(null);
 				return "deptinsert";
-			}	
-//------------------------------------------------------------------------------------------------------------------//
-			
-			 // 刪除
-			@RequestMapping("/deleteUser.action")
-			public String deleteUser(@RequestParam("index") int value,Model model,HttpServletRequest req) {
-				//拿到全部的 users
-				List<User> list =(List<User>) req.getSession().getAttribute("users");
-				//從LIST移除此筆
-				list.remove(value);
-				//傳回dept
-				Dept dept = (Dept) req.getSession().getAttribute("dept");
-				model.addAttribute("dept",dept);
+			}
+			//不改
+			if("quit".equals(action)) {
 				return "deptinsert";
-			}	
-			
+			}
+			//失敗回原頁
+			return "deptupdate";
+		}
+	
+//------------------------------------------------------------------------------------------------------------------//
+
+	// 刪除A User
+	@RequestMapping("/deleteUser.action")
+	public String deleteUser(@RequestParam("index") int value, Model model, HttpServletRequest req) {
+		// 拿到全部的dept session
+		Dept sessiondept = (Dept) req.getSession().getAttribute("sessiondept");	
+		//刪除你要刪除的那個index
+		sessiondept.getUsers().remove(value);
+		//把剩下的set回去session
+		model.addAttribute("dept", sessiondept);
+		return "deptinsert";
+	}
+//------------------------------------------------------------------------------------------------------------------//
+	@RequestMapping("/delAll.action")
+	public String delAll() {
+		
+		return null;
+		
+	}
 
 }

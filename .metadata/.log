@@ -5354,3 +5354,18 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2020-09-17 14:33:34.599
+!MESSAGE Server Tomcat v8.5 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2020-09-17 14:36:57.717
+!MESSAGE Server Tomcat v8.5 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2020-09-17 14:45:13.319
+!MESSAGE Server Tomcat v8.5 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2020-09-17 14:51:54.842
+!MESSAGE Server Tomcat v8.5 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2020-09-17 14:58:00.377
+!MESSAGE Server Tomcat v8.5 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
