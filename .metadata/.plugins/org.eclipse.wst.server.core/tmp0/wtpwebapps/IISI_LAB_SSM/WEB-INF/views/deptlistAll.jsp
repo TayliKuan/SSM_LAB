@@ -41,10 +41,9 @@
 							<td>單位編號</td>
 							<td>單位</td>
 							<td>地點</td>
+							<td>修改單位</td>
+							<td>新增此單位客戶</td>
 							<td>刪除單位及客戶</td>
-							<td></td>
-							<td></td>
-							<td></td>
 							<td></td>
 						</tr>
 					</thead>
@@ -55,8 +54,24 @@
 							<td><c:out value="${dept.dname}" /></td>
 							<td><c:out value="${dept.loc}" /></td>
 							<td>
+							<form:form action="updateOneDept_enter.action" method="post" modelAttribute="dept">
+								<button type="submit" name="action" value="updateOneDept" class="btn btn-outline-dark btn-block">修改</button>
+								<input type="hidden" name="deptno" value="${dept.deptno}">
+							</form:form>
+							</td>
+							<td>
+<%-- 							 <a href="<%=request.getContextPath()%>/user/user_insert_enter.action"  class="btn btn-secondary">新增客戶</a> --%>
+							<form:form action="addUser.action" method="post" modelAttribute="user">
+								<button type="submit" name="action" value="addUser" class="btn btn-outline-dark btn-block">新增</button>
+								<input type="hidden" name="deptno" value="${dept.deptno}">
+								
+							</form:form>
+							</td>
+	
+							<td>
 							<form:form action="delAll.action" method="post" modelAttribute="dept">
-							<button type="submit" name="action" value="delAll" class="btn btn-outline-dark btn-block">刪除</button>
+								<button type="submit" name="action" value="delAll" class="btn btn-outline-dark btn-block">刪除</button>
+								<input type="hidden" name="deptno" value="${dept.deptno}">
 							</form:form>
 							</td>
 						<tr>
@@ -68,7 +83,8 @@
 							<td>電話</td>
 							<td>生日</td>
 							<td>加入日期</td>
-
+							<td>修改客戶</td>
+							
 						</tr>
 						<c:forEach var="user" items="${dept.users}">
 
@@ -84,6 +100,15 @@
 								<td><fmt:formatDate value="${user.joindate}"
 										pattern="yyyy/MM/dd" /></td>
 
+							
+							<td>
+								<form:form action="updateOneUser_enter.action" method="post" modelAttribute="user">
+								<button type="submit" name="action" value="updateOneUser" class="btn btn-outline-dark btn-block">修改</button>
+								<input type="hidden" name="uno" value="${user.uno}">
+<%-- 								<input type="hidden" name="deptno" value="${dept.deptno}"> --%>
+								
+							</form:form>
+							</td>
 							</tr>
 						</c:forEach>
 						

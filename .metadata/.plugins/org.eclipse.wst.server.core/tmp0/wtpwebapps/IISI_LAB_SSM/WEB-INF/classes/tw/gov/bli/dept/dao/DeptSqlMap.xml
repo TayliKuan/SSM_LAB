@@ -48,5 +48,20 @@
 	 ;end;
 	</insert>
 	
-
+	<!--update -->
+	<update id="update" parameterType="tw.gov.bli.dept.domain.Dept">
+	UPDATE dept set dname=#{dname}, loc=#{loc} where deptno = #{deptno}
+	</update>
+	
+	<!--delete -->
+	<delete id="delete" parameterType="java.lang.String">		
+		delete from dept where deptno =  #{deptno}
+	</delete>
+	
+	<!-- findByPrimaryKey -->
+	<select id="findByPrimaryKey" resultType="tw.gov.bli.dept.domain.Dept">
+	SELECT * FROM dept where deptno = #{deptno}
+	</select>
+	
+	
 </mapper>
