@@ -99,3 +99,7 @@
 9月 16, 2020 22:04:08.78 NEW SESSION
 9月 16, 2020 22:04:08.78 [2500:1660:0916/220408.779:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
 9月 16, 2020 22:11:50.11 [7976:25712:0916/221150.115:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9月 18, 2020 15:42:45.13 NEW SESSION
+9月 18, 2020 15:42:45.13 [11832:11016:0918/154245.133:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9月 18, 2020 15:46:02.34 [8180:1296:0918/154602.347:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.

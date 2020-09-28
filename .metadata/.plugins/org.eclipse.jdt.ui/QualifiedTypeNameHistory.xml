@@ -56,8 +56,8 @@
 <fullyQualifiedTypeName name="tw.gov.bli.service.DeptService"/>
 <fullyQualifiedTypeName name="tw.gov.bli.domain.Dept"/>
 <fullyQualifiedTypeName name="tw.gov.bli.dto.DeptCase"/>
-<fullyQualifiedTypeName name="tw.gov.bli.user.service.UserService"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
+<fullyQualifiedTypeName name="tw.gov.bli.user.service.UserService"/>
 </qualifiedTypeNameHistroy>

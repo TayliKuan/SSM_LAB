@@ -1,3 +1,4 @@
 #Tomcat publish data
-#Fri Sep 18 15:07:17 CST 2020
+#Fri Sep 18 15:45:58 CST 2020
 org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\2008019\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-web\\5.2.8.RELEASE\\4f9542d61fff7beb6050e8028dfb6b7c6844c99a\\spring-web-5.2.8.RELEASE.jar=WEB-INF/lib/spring-web-5.2.8.RELEASE.jar
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\2008019\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.tomcat.embed\\tomcat-embed-websocket\\9.0.21\\218f438e4812f268a1692511f897b401fc28cfa8\\tomcat-embed-websocket-9.0.21.jar=WEB-INF/lib/tomcat-embed-websocket-9.0.21.jar
