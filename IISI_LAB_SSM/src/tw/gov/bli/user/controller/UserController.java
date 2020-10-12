@@ -127,13 +127,13 @@ public class UserController{//就是servlet
 //------------------------------------------------------------------------------------------------------------------//		
 	//複合查詢
 		@RequestMapping("/user_findUserByCondition.action")
-		public String findUserByCondition(@Valid User user,BindingResult result ,Model model,String birth) throws ParseException {
+		public String findUserByCondition(User user ,Model model,String birthday) throws ParseException {
 			
 			user.setUsername(user.getUsername());
 			user.setSex(user.getSex());
 			user.setUserid(user.getUserid());
 			try {
-				user.setBirthday(java.sql.Date.valueOf(birth));
+				user.setBirthday(java.sql.Date.valueOf(birthday));
 			} catch (Exception e) {
 				user.setBirthday(null);
 			}
@@ -141,6 +141,7 @@ public class UserController{//就是servlet
 			//用service的方法
 			List<User> list = userService.findUserByCondition(user);
 			model.addAttribute("list",list);
+			System.out.println("list.size()="+list.size());
 			return "listAll";
 		}	
 //------------------------------------------------------------------------------------------------------------------//		

@@ -53,19 +53,19 @@
 	<!-- ***根據條件查詢 可以查很多條件 複合查詢-->
 	<select id="findUserByCondition" resultType="tw.gov.bli.user.domain.User" parameterType="tw.gov.bli.user.domain.User" >
 select *from users		<where>
-			<if test="username != null">
+			<if test="username != null and username != ''">
 			and username like  '%'|| #{username} ||'%'
 			</if>
 			<if test="sex != null">
 			and sex = #{sex}
 			</if>
-			<if test="userid != null">
+			<if test="userid != null and userid != ''">
 			and userid like '%' || #{userid} ||'%'
 			</if>
 			<if test="birthday != null">
 			and birthday = #{birthday}
 			</if>
-			<if test="deptno != null">
+			<if test="deptno != null and deptno != ''">
 			and deptno = #{deptno}
 			</if>
 		</where>

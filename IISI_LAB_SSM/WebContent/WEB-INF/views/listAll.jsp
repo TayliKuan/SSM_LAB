@@ -60,10 +60,9 @@
                         <label for="vehicle1">男</label>
                         <form:checkbox path="sex"  id="vehicle2" name="sex" value="女" />
                         <label for="vehicle2">女</label>
-                         <form:errors cssStyle="display:none" id="errorMsg" path="*" element="div" />
                     </td>
                     <td><form:input path="userid" type="text" name="userid" class="form-control" placeholder="請輸入身分證字號" /></td>
-                    <td><form:input path="birthday" type="date" name="birth" class="form-control" placeholder="請輸入生日" /></td>
+                    <td><form:input path="birthday" type="date" name="birthday" class="form-control" placeholder="請輸入生日" /></td>
                     <td><form:input path="deptno" type="text" name="deptno" class="form-control" placeholder="請輸入部門" /></td>
                    
                     <td>
